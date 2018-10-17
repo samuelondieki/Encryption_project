@@ -153,40 +153,35 @@ public class RSA extends AppCompatActivity {
     }
 
 
+
+    //additional functions
+    //converting to hexa
     public static String byte2hex(byte[] b) {
         String hs = "";
 
         String stmp = "";
-
         for (int n = 0; n < b.length; n++) {
             stmp = Integer.toHexString(b[n] & 0xFF);
             if (stmp.length() == 1)
                 hs += ("0" + stmp);
-
             else
                 hs += stmp;
         }
         return hs.toUpperCase();
-
     }
 
 
 
     public static byte[] hex2byte(byte[] b) {
-
         if ((b.length % 2) != 0)
             throw new IllegalArgumentException("hello");
         byte[] b2 = new byte[b.length / 2];
-
         for (int n = 0; n < b.length; n += 2) {
-
             String item = new String(b, n, 2);
 
             b2[n / 2] = (byte) Integer.parseInt(item, 16);
-
         }
         return b2;
-
     }
 }
 
